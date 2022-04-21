@@ -34,9 +34,8 @@ struct Employee
     bool gender {}; 
 
 }; 
-
-  
-
+void swap(Employee &x, Employee &y);
+void bubbleSort(Employee a[], int b);
 int main() 
 
 { 
@@ -98,8 +97,44 @@ int main()
         if (a[i].wage >= 1000)
             tong = tong + 1;
     }
-    cout << tong;
+    cout << tong << endl;
+    bubbleSort(a, n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i].name << endl;
+    }
+    
     return 0; 
+}   
 
-} 
+void swap(Employee &x, Employee &y)
+{
+    Employee z = x;
+    x = y;
+    y = z;
+}
+void bubbleSort(Employee a[], int b)
+{
+    int i, j;
+    bool haveSwap = false;
+    for (i = 0; i < b ; i++ )
+    {
+        haveSwap = false;
+        for (j = 0; j < b - j - 1; j++)
+        {
+            if (a[j].age > a[j+1].age)
+            {
+                swap(a[j],a[j+1]);
+                haveSwap = true;
+            }
+        }
+        if (haveSwap == false)
+        {
+            break;
+        }
+    }
+}
 
+    
+    
+   
